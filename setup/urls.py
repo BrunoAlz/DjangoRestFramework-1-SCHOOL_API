@@ -11,5 +11,5 @@ router.register('matriculas', MatriculaViewSet, basename='Matriculas')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
-    path('aluno/<int:pk>/matriculas/', include(ListaMatriculasAluno.as_view)),
+    path('aluno/<int:pk>/matriculas/', ListaMatriculasAluno.as_view()),
 ]
