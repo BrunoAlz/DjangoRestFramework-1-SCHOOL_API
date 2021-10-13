@@ -19,3 +19,9 @@ class MatriculaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Matricula
         fields = '__all__'
+
+
+class ListaMatriculasAlunoSerializer(serializers.ModelSerializer): 
+    class Meta:
+        model = Matricula
+        fields = ['curso', 'periodo']
