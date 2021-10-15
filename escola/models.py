@@ -23,8 +23,8 @@ class Curso(models.Model):
     codigo_curso = models.CharField(max_length=10)
     descricao = models.CharField(max_length=110)
     nivel = models.CharField(max_length=1, choices=NIVEL,
-                            blank=False, null=False, default='B'
-                            )
+                             blank=False, null=False, default='B'
+                             )
 
     def __str__(self) -> str:
         return self.descricao
@@ -42,3 +42,11 @@ class Matricula(models.Model):
     periodo = models.CharField(max_length=1, choices=PERIODO,
                                blank=False, null=False, default='M'
                                )
+
+
+class Imagem(models.Model):
+    descricao = models.CharField(max_length=30)
+    foto = models.ImageField()
+
+    def __str__(self):
+        return self.descricao

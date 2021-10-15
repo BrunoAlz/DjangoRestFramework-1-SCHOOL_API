@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from escola.models import Aluno, Curso, Matricula
+from escola.models import Aluno, Curso, Matricula, Imagem
 
 
 class AlunoSerializer(serializers.ModelSerializer):
@@ -44,3 +44,9 @@ class AlunoSerializerV2(serializers.ModelSerializer):
     class Meta:
         model = Aluno
         fields = ['id', 'nome', 'celular', 'rg', 'cpf', 'data_nascimento']
+
+
+class ImagemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Imagem
+        fields = '__all__'
