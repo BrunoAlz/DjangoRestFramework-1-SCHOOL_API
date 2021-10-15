@@ -25,7 +25,7 @@ def criando_cursos(quantidade_de_cursos):
     Faker.seed(10)
     for _ in range(quantidade_de_cursos):
         codigo_curso = "{}{}-{}".format(random.choice("ABCDEF"), random.randrange(10, 99),random.randrange(1, 9))
-        descs = ['Python Fundamentos', 'Python intermediário','Python Avançado', 'Python para Data Science', 'Python/React']
+        descs = ['Python Fundamentos', 'Python intermediário','Python Avançado', 'Python para Data Science', 'Python/React', 'Java Script Básico', 'HTML e CSS3', 'SQL Server 2019', 'Git e Github', 'Containers com Docker']
         descricao = random.choice(descs)
         descs.remove(descricao)
         nivel = random.choice("BIA")
@@ -33,5 +33,5 @@ def criando_cursos(quantidade_de_cursos):
         c.save()
 
 
-criando_alunos(200)
-criando_cursos(5)
+criando_alunos(0)
+criando_cursos(0)
