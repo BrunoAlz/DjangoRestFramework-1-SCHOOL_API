@@ -8,9 +8,14 @@ from rest_framework.permissions import IsAuthenticated
 class AlunosViewSet(viewsets.ModelViewSet):
     """Exibindo todos os alunos e alunas"""
     queryset = Aluno.objects.all()
-    serializer_class = AlunoSerializer
     authentication_classes = [BasicAuthentication]
     permission_classes = [IsAuthenticated]
+
+    def get_serializer_class(self):
+        if self.request.version == 'V2':
+            return AlunoSerializerV2
+        else:
+            return AlunoSerializer
 
 
 class CursosViewSet(viewsets.ModelViewSet):
