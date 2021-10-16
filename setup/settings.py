@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 from pathlib import Path, os
+from django.utils.translation import gettext as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -166,3 +167,8 @@ REST_FRAMEWORK = {
 
 # SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 # SESSION_CACHE_ALIAS = 'default'
+
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale/'),
+)
