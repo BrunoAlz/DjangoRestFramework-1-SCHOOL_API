@@ -1,3 +1,5 @@
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 from rest_framework import status, viewsets, generics
 from rest_framework import serializers
 from escola.models import Aluno, Curso, Matricula, Imagem
@@ -38,6 +40,10 @@ class MatriculaViewSet(viewsets.ModelViewSet):
     serializer_class = MatriculaSerializer
     http_method_names = ['get', 'post', 'put', 'path']
 
+    """Cria o Método para fazer as matriculas ficar em cache """
+    @method_decorator(cache_page(20))
+    def dispatch(self, *args, **kwargs):
+        return super(MatriculaViewSet, self).dispatch(*args, **kwargs)
 
 class ListaMatriculasAluno(generics.ListAPIView):
     """Listando as matrículas de um aluno ou aluna"""
